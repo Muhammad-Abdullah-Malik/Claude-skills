@@ -1,0 +1,119 @@
+{
+  "api": "https://jsonplaceholder.typicode.com/users",
+  "test_date": "2026-01-11T21:42:08.874353",
+  "summary": {
+    "total": 10,
+    "passed": 10,
+    "failed": 0,
+    "pass_rate": "100.0%"
+  },
+  "results": [
+    {
+      "test": "GET /users",
+      "status": "PASS",
+      "details": {
+        "status_code": 200,
+        "response_time_ms": 979.58,
+        "user_count": 10,
+        "has_required_fields": true,
+        "sample_user": "Leanne Graham"
+      },
+      "timestamp": "2026-01-11T21:41:49.614748"
+    },
+    {
+      "test": "GET /users/1",
+      "status": "PASS",
+      "details": {
+        "status_code": 200,
+        "response_time_ms": 950.98,
+        "user_name": "Leanne Graham",
+        "user_email": "Sincere@april.biz",
+        "has_all_fields": true,
+        "has_nested_objects": true
+      },
+      "timestamp": "2026-01-11T21:41:50.567102"
+    },
+    {
+      "test": "GET /users/99999 (404 test)",
+      "status": "PASS",
+      "details": {
+        "status_code": 404,
+        "response": null,
+        "note": "JSONPlaceholder returns empty object for invalid IDs"
+      },
+      "timestamp": "2026-01-11T21:41:52.739308"
+    },
+    {
+      "test": "POST /users (create)",
+      "status": "PASS",
+      "details": {
+        "status_code": 201,
+        "response_time_ms": 1300.4,
+        "created_id": 11,
+        "created_name": "Abdullah Test",
+        "data_validation": "Data echoed correctly"
+      },
+      "timestamp": "2026-01-11T21:41:54.041712"
+    },
+    {
+      "test": "PUT /users/1 (update)",
+      "status": "PASS",
+      "details": {
+        "status_code": 200,
+        "updated_name": "Updated Name",
+        "update_successful": true
+      },
+      "timestamp": "2026-01-11T21:41:55.683743"
+    },
+    {
+      "test": "PATCH /users/1 (partial)",
+      "status": "PASS",
+      "details": {
+        "status_code": 200,
+        "patched_email": "patched@test.com"
+      },
+      "timestamp": "2026-01-11T21:41:57.254148"
+    },
+    {
+      "test": "DELETE /users/1",
+      "status": "PASS",
+      "details": {
+        "status_code": 200,
+        "note": "JSONPlaceholder simulates deletion (doesn't actually delete)"
+      },
+      "timestamp": "2026-01-11T21:41:58.932243"
+    },
+    {
+      "test": "Response Headers",
+      "status": "PASS",
+      "details": {
+        "content_type": "application/json; charset=utf-8",
+        "has_cors": false,
+        "cors_origin": "Not set"
+      },
+      "timestamp": "2026-01-11T21:41:59.853850"
+    },
+    {
+      "test": "Response Time Performance",
+      "status": "PASS",
+      "details": {
+        "average_ms": 1338.97,
+        "min_ms": 943.15,
+        "max_ms": 2131.72,
+        "samples": 5
+      },
+      "timestamp": "2026-01-11T21:42:06.551477"
+    },
+    {
+      "test": "Data Type Validation",
+      "status": "PASS",
+      "details": {
+        "id_type": "int",
+        "name_type": "str",
+        "email_format": "Valid",
+        "address_type": "dict"
+      },
+      "timestamp": "2026-01-11T21:42:08.872852"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "graphql_endpoint": "https://api.example.com/graphql",
+  "auth_token": "your_jwt_token_here",
+  "queries": [
+    {
+      "name": "Get User",
+      "query": "query GetUser($id: ID!) { user(id: $id) { id name email } }",
+      "variables": {
+        "id": "123"
+      }
+    },
+    {
+      "name": "Get All Users",
+      "query": "query { users { id name email } }"
+    }
+  ],
+  "mutations": [
+    {
+      "name": "Create User",
+      "query": "mutation CreateUser($input: CreateUserInput!) { createUser(input: $input) { id name email } }",
+      "variables": {
+        "input": {
+          "name": "Test User",
+          "email": "test@example.com"
+        }
+      }
+    },
+    {
+      "name": "Update User",
+      "query": "mutation UpdateUser($id: ID!, $input: UpdateUserInput!) { updateUser(id: $id, input: $input) { id name email } }",
+      "variables": {
+        "id": "123",
+        "input": {
+          "name": "Updated Name"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "base_url": "https://api.example.com",
+  "auth_token": "your_jwt_token_here",
+  "tests": [
+    {
+      "name": "Get all users",
+      "url": "/users",
+      "method": "GET",
+      "expected_status": 200
+    },
+    {
+      "name": "Get specific user",
+      "url": "/users/123",
+      "method": "GET",
+      "expected_status": 200
+    },
+    {
+      "name": "Create user",
+      "url": "/users",
+      "method": "POST",
+      "data": {
+        "name": "Test User",
+        "email": "test@example.com"
+      },
+      "expected_status": 201
+    },
+    {
+      "name": "Update user",
+      "url": "/users/123",
+      "method": "PUT",
+      "data": {
+        "name": "Updated Name"
+      },
+      "expected_status": 200
+    },
+    {
+      "name": "Delete user",
+      "url": "/users/123",
+      "method": "DELETE",
+      "expected_status": 204
+    },
+    {
+      "name": "Test authentication",
+      "url": "/protected",
+      "method": "GET",
+      "expected_status": 401,
+      "headers": {
+        "Authorization": ""
+      }
+    }
+  ]
+}

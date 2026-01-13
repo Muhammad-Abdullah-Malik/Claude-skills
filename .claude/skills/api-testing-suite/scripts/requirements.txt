@@ -1,0 +1,22 @@
+# Core HTTP libraries
+requests>=2.31.0
+httpx>=0.25.0
+
+# For async support
+httpx[http2]>=0.25.0
+
+# JSON schema validation
+jsonschema>=4.20.0
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# JWT handling
+pyjwt>=2.8.0
+
+# Testing framework (optional)
+pytest>=7.4.0
+pytest-html>=4.1.0
+
+# Request retry logic
+urllib3>=2.0.0

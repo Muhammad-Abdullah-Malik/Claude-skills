@@ -1,0 +1,33 @@
+{
+  "base_url": "https://api.example.com",
+  "auth_token": "your_jwt_token_here",
+  "tests_to_run": [
+    "broken_authentication",
+    "broken_object_level_authorization",
+    "sql_injection",
+    "xss",
+    "security_headers",
+    "rate_limiting",
+    "https_enforcement",
+    "sensitive_data_exposure"
+  ],
+  "endpoints_to_test": [
+    "/users",
+    "/auth/login",
+    "/auth/register",
+    "/search",
+    "/comments"
+  ],
+  "test_users": [
+    {
+      "email": "user1@example.com",
+      "password": "password123",
+      "role": "user"
+    },
+    {
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin"
+    }
+  ]
+}

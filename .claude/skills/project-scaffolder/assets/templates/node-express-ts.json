@@ -1,0 +1,39 @@
+{
+  "name": "node-express-typescript",
+  "description": "Node.js Express API with TypeScript",
+  "structure": {
+    "src": {
+      "controllers": {},
+      "routes": {},
+      "middleware": {},
+      "models": {},
+      "services": {},
+      "utils": {},
+      "config": {},
+      "types": {},
+      "app.ts": "{{APP_TS}}"
+    },
+    "tests": {
+      "unit": {},
+      "integration": {}
+    },
+    ".env.example": "{{ENV_EXAMPLE}}",
+    ".gitignore": "{{GITIGNORE}}",
+    "package.json": "{{PACKAGE_JSON}}",
+    "tsconfig.json": "{{TSCONFIG}}",
+    "eslint.config.js": "{{ESLINT_CONFIG}}",
+    "vitest.config.ts": "{{VITEST_CONFIG}}",
+    "README.md": "{{README}}"
+  },
+  "files": {
+    "APP_TS": "import express, { Express, Request, Response } from 'express';\nimport cors from 'cors';\nimport helmet from 'helmet';\nimport morgan from 'morgan';\nimport dotenv from 'dotenv';\n\ndotenv.config();\n\nconst app: Express = express();\nconst port = process.env.PORT || 3000;\n\n// Middleware\napp.use(helmet());\napp.use(cors());\napp.use(morgan('dev'));\napp.use(express.json());\napp.use(express.urlencoded({ extended: true }));\n\n// Routes\napp.get('/', (req: Request, res: Response) => {\n  res.json({ message: 'Welcome to {{PROJECT_NAME}} API' });\n});\n\napp.get('/health', (req: Request, res: Response) => {\n  res.json({ status: 'ok', timestamp: new Date().toISOString() });\n});\n\n// Error handling\napp.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {\n  console.error(err.stack);\n  res.status(500).json({ error: 'Something went wrong!' });\n});\n\napp.listen(port, () => {\n  console.log(`Server running on http://localhost:${port}`);\n});\n\nexport default app;",
+    "ENV_EXAMPLE": "NODE_ENV=development\nPORT=3000\nAPI_URL=http://localhost:3000\n\n# Database\nDATABASE_URL=postgresql://user:password@localhost:5432/dbname\n\n# Authentication\nJWT_SECRET=your-secret-key-here\nJWT_EXPIRES_IN=7d",
+    "GITIGNORE": "node_modules/\ndist/\n.env\n.env.local\n*.log\n.DS_Store\n.vscode/\n.idea/\n*.swp\n*.tsbuildinfo",
+    "PACKAGE_JSON": "{\n  \"name\": \"{{PROJECT_NAME}}\",\n  \"version\": \"1.0.0\",\n  \"type\": \"module\",\n  \"scripts\": {\n    \"dev\": \"tsx watch src/app.ts\",\n    \"build\": \"tsc\",\n    \"start\": \"node dist/app.js\",\n    \"test\": \"vitest\",\n    \"lint\": \"eslint src/**/*.ts\"\n  },\n  \"dependencies\": {\n    \"express\": \"^4.18.0\",\n    \"dotenv\": \"^16.0.0\",\n    \"cors\": \"^2.8.5\",\n    \"helmet\": \"^7.0.0\",\n    \"morgan\": \"^1.10.0\"\n  },\n  \"devDependencies\": {\n    \"typescript\": \"^5.3.0\",\n    \"@types/express\": \"^4.17.0\",\n    \"@types/node\": \"^20.0.0\",\n    \"@types/cors\": \"^2.8.0\",\n    \"tsx\": \"^4.0.0\",\n    \"vitest\": \"^1.0.0\",\n    \"eslint\": \"^8.0.0\",\n    \"@typescript-eslint/eslint-plugin\": \"^6.0.0\",\n    \"@typescript-eslint/parser\": \"^6.0.0\"\n  }\n}",
+    "TSCONFIG": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"module\": \"NodeNext\",\n    \"moduleResolution\": \"NodeNext\",\n    \"outDir\": \"./dist\",\n    \"rootDir\": \"./src\",\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"skipLibCheck\": true,\n    \"forceConsistentCasingInFileNames\": true,\n    \"resolveJsonModule\": true,\n    \"declaration\": true,\n    \"sourceMap\": true\n  },\n  \"include\": [\"src/**/*\"],\n  \"exclude\": [\"node_modules\", \"dist\"]\n}",
+    "README": "# {{PROJECT_NAME}}\n\nNode.js Express API with TypeScript\n\n## Prerequisites\n\n- Node.js 18+\n- npm or yarn\n\n## Installation\n\n```bash\nnpm install\ncp .env.example .env\n```\n\n## Development\n\n```bash\nnpm run dev\n```\n\n## Build\n\n```bash\nnpm run build\nnpm start\n```\n\n## Testing\n\n```bash\nnpm test\n```"
+  },
+  "dependencies": {
+    "install_command": "npm install"
+  }
+}
